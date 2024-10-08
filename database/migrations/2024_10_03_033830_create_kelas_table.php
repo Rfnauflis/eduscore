@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pembina', function (Blueprint $table) {
+        Schema::create('kelas', function (Blueprint $table) {
             $table->id();
-            $table->string("nama_pembina");
-            $table->string("email");
-            $table->char("NIP");
-            $table->string("contact");
+            $table->string("name");
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pembina');
+        Schema::dropIfExists('kelas');
     }
 };

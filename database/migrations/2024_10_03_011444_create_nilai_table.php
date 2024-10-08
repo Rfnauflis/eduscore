@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date("tgl_penilaian");        
             $table->foreign('id_siswa')->references("id")->on("siswa");
             $table->foreign('id_ekstra')->references("id")->on("ekstra");
+            $table->timestamps();
         });
     }
 
