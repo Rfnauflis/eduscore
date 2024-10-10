@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.sign-in');
 });
 
-Route::get('Admin/sign-in', function () {
-    return view('Admin.sign-in');
+Route::get('dashboard/index', function () {
+    return view('dashboard.index');
 });

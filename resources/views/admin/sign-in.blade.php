@@ -84,7 +84,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Heading-->
 									<div class="text-center mb-11">
 										<!--begin::Title-->
-										<h1 class="text-gray-900 fw-bolder mb-3">Hello Admin</h1>
+										<h1 class="text-gray-900 fw-bolder mb-3">Sign In Admin</h1>
 										<!--end::Title-->
 									</div>
 									<!--begin::Heading-->
