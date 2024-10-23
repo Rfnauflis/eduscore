@@ -2,27 +2,81 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-  public function authenticate(Request $request)
-  {
-      $credentials = $request->validate([
-          'email' => ['required', 'email'],
-          'password' => ['required'],
-      ]);
+    public function registerPage()
+    {
+        return view('admin.sign-up');
+    }
 
-      if (Auth::attempt($credentials)) {
-          $request->session()->regenerate();
+    public function register(Request $request)
+    {
+        // validasi data
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+            'nip' => 'required|unique:users',
+        ]);
 
-          return redirect()->intended('dashboard');
-      }
+        // Jika validasi gagal
+        if ($validator->fails()) {
+            dd($validator->messages());
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
-      return back()->withErrors([
-          'email' => 'The provided credentials do not match our records.',
-      ])->onlyInput('email');
-  }
+        // create data
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password), // Hash password
+            'nip' => $request->nip,
+        ]);
+
+        // redirect ke halaman sign-in dengan pesan sukses
+        return redirect()->route('login')->with('message', 'Akun Telah dibuat. Silakan masuk.');
+    }
+
+    public function loginPage()
+    {
+        return view("admin.sign-in");
+    }
+
+    public function login(Request $request)
+    {
+        // validasi input
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+
+        // Coba login dengan Auth::attempt
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard'); // Redirect ke dashboard
+        }
+
+        // Jika gagal, kembalikan dengan pesan error
+        return back()->withErrors([
+            'message' => 'Email atau password salah',
+        ])->withInput();
+        
+    }
+
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/admin/sign-in')->with('message', 'Anda telah berhasil keluar.');
+    }
 }

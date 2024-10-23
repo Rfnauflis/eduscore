@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Nilai>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Extraculicular>
  */
-class NilaiFactory extends Factory
+class ExtraculicularFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class NilaiFactory extends Factory
     public function definition(): array
     {
         return [
-            
+            'name' => fake()->randomElement(['Futsal', 'Paskibra', 'Teater']),
         ];
     }
 }
