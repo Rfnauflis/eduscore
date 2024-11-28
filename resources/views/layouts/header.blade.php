@@ -3,8 +3,8 @@
     <!--begin::Brand-->
     <div class="header-brand">
         <!--begin::Logo-->
-        <a href="index.html">
-            <img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px h-lg-25px" />
+        <a href="">
+            <img alt="Logo" src="{{ asset('assets/media/logos/default-dark.svg') }}" class="h-25px h-lg-25px" />
         </a>
         <!--end::Logo-->
         <!--begin::Aside minimize-->
@@ -41,7 +41,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex justify-content-center flex-column me-5">
                 <!--begin::Title-->
-                <h1 class="d-flex flex-column text-gray-900 fw-bold fs-3 mb-0">Dashboard</h1>
+                <h1 class="d-flex flex-column text-gray-900 fw-bold fs-3 mb-0"><a href="/dashboard" class="text-gray-800">Dashboard</a></h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">

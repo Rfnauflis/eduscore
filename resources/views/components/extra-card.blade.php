@@ -1,9 +1,9 @@
 <div class="col-xl-4">
     <!--begin::Statistics Widget 5-->
-    <a href="#" class="card bg-body-white hoverable card-xl-stretch mb-xl-8">
+    <a href="{{ route('ekstrakulikuler.pendaftar') }}" class="card bg-body-blue hoverable card-xl-stretch mb-xl-8">
         <!--begin::Body-->
         <div class="card-body">
-            <i class="ki-duotone ki-basket text-primary fs-2x ms-n1">
+          
                 <span class="path1"></span>
                 <span class="path2"></span>
                 <span class="path3"></span>

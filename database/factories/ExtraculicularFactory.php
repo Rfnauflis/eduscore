@@ -17,7 +17,7 @@ class ExtraculicularFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->randomElement(['Futsal', 'Paskibra', 'Teater']),
+            'name' => fake()->randomElement(['Futsal', 'Paskibra', 'Teater', 'PKS', 'Pramuka', 'Silat', 'Voli', 'Basket', 'English Club']),
         ];
     }
 }

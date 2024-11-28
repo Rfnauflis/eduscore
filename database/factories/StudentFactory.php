@@ -18,11 +18,13 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
+        
         return [
             'name' => fake()->name(),
-            'nis' => fake()->unique()->rumerify('############'),
+            'nis' => fake()->unique()->numerify('############'),
             'email' => fake()->email(),
-            'contact' => fake()->unique()->rumerify('############'),
+            'contact' => fake()->unique()->numerify('############'),
+            'gender' => fake()->randomElement(['Laki-Laki', 'Perempuan']),
             'password' => static::$password ??= Hash::make('password'),
         ];
     }

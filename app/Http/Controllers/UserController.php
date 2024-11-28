@@ -27,7 +27,6 @@ class UserController extends Controller
 
         // Jika validasi gagal
         if ($validator->fails()) {
-            dd($validator->messages());
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
@@ -55,7 +54,7 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8',
         ]);
-
+    
         // Coba login dengan Auth::attempt
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -69,6 +68,27 @@ class UserController extends Controller
         
     }
 
+    public function edit (string $id) {
+        $admin = User::find($id);
+        return view('admin.edit', compact('admin'));
+    }
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'nip' => 'required',
+        ]);
+
+        $admin = User::find($id);
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->nip = $request->nis;
+        $student->save();
+
+        return redirect()->route('ekstrakulikuler.listing');
+    }
+
 
     public function logout(Request $request)
     {
@@ -80,3 +100,5 @@ class UserController extends Controller
         return redirect('/admin/sign-in')->with('message', 'Anda telah berhasil keluar.');
     }
 }
+
+

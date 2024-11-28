@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Classroom;
+use App\Models\Extraculicular;
+use App\Models\Student;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,9 +18,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        Classroom::factory(10)->create();
+        Student::factory(10)->create();
+        Extraculicular::factory(10)->create();
     }
+
 }

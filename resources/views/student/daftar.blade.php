@@ -8,6 +8,10 @@
     <!--begin::Authentication - Sign-in -->
     <div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
+        <div class="d-flex flex-lg-row-fluid">
+        
+        </div>
+        <!--begin::Aside-->
         <!--begin::Body-->
         <div class="d-flex flex-column-fluid flex-lg-row-auto justify-content-center justify-content-lg-end p-12">
             <!--begin::Wrapper-->
@@ -17,44 +21,56 @@
                     <!--begin::Wrapper-->
                     <div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
                         <!--begin::Form-->
-                        <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" data-kt-redirect-url="" action="{{ route('students.login') }}" method="POST">
+                        <form class="form w-100" action="{{ route('student.store') }} " method="POST">
                             @csrf
                             <!--begin::Heading-->
                             <div class="text-center mb-11">
                                 <!--begin::Title-->
-                                <h1 class="text-gray-900 fw-bolder mb-3">Students Login</h1>
+                                <h1 class="text-gray-900 fw-bolder mb-3">Registrasi Ekstra</h1>
                                 <!--end::Title-->
-
                             </div>
-                             <!-- Pesan sukses -->
-                    @if (session('message'))
-                    <div class="alert alert-success">{{ session('message') }}</div>
-                @endif
                             <!--begin::Heading-->
                             <!--begin::Input group=-->
                             <div class="fv-row mb-8">
                                 <!--begin::Email-->
-                                <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
+                                <input type="text" placeholder="Nama" name="name" autocomplete="off" class="form-control bg-transparent" />
                                 <!--end::Email-->
                             </div>
+                            <!--end::Input group=-->
+                         
+                            <!--begin::Input group=-->
                             <div class="fv-row mb-8">
-                            <div class="fv-row mb-3">
-                                <!--begin::Password-->
-                                <input type="password" placeholder="Password" name="password" autocomplete="off" class="form-control bg-transparent" />
-                                <!--end::Password-->
+                                <!--begin::Email-->
+                                <input type="text" placeholder="NIS" name="nis" autocomplete="off" class="form-control bg-transparent" />
+                                <!--end::Email-->
                             </div>
                             <!--end::Input group=-->
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-                                <div></div>
-                             
-                            </div>
-                            <!--end::Wrapper-->
+                            <select name="gender" class="form-select form-select-lg mb-8" aria-label="Large select example">
+                                <option selected disabled>Jenis Kelamin</option>
+                                <option value="L">Laki-laki</option>
+                                <option value="p">Perempuan</option>
+                              </select>
+                               <!--begin::Input group=-->
+                            <div class="fv-row mb-8">
+                                <!--begin::Email-->
+                                <input type="text" placeholder="No. Telepon" name="contact" autocomplete="off" class="form-control bg-transparent" />
+                                <!--end::Email-->
+                            </div>   
+                             <!--end::Input group=-->
+                             <select name="classroom_id" class="form-select form-select-lg mb-8" aria-label="Large select example">
+                                <option selected disabled>Kelas</option>
+                                <option value="1">XII RPL</option>
+                                <option value="2">XII TKJ 1</option>
+                                <option value="3">XII TKJ 2</option>
+                                <option value="4">XII TKJ 3</option>
+                              </select>
+                          
+                         
                             <!--begin::Submit button-->
                             <div class="d-grid mb-10">
                                 <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
                                     <!--begin::Indicator label-->
-                                    <span class="indicator-label">Login</span>
+                                    <span class="indicator-label">Registrasi</span>
                                     <!--end::Indicator label-->
                                     <!--begin::Indicator progress-->
                                     <span class="indicator-progress">Please wait... 
@@ -63,15 +79,15 @@
                                 </button>
                             </div>
                             <!--end::Submit button-->
-                            <!--begin::Sign up-->
-                            <div class="text-gray-500 text-center fw-semibold fs-6">Belum punya akun? 
-                            <a href="{{ route('sign-up') }}" class="link-primary">Daftar</a></div>
-                            <!--end::Sign up-->
+                      
                         </form>
                         <!--end::Form-->
                     </div>
                     <!--end::Wrapper-->
-              
+                    <!--begin::Footer-->
+                    <div class="d-flex flex-stack">
+                    </div>
+                    <!--end::Footer-->
                 </div>
                 <!--end::Content-->
             </div>

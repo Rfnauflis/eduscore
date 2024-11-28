@@ -1,15 +1,20 @@
+
 @extends('layouts.dashboard')
 
 @section('content')
+
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Post-->
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <!--begin::Container-->
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Row-->
+                @foreach ($ekstras as $ekstra)
+                    
                 <div class="row g-5 g-xl-8">
-                    <x-extra-card name="basket" admin="an bha tu kang"></x-extra-card>
+                    <x-extra-card name="{{ $ekstra->name }}" admin="{{ $ekstra->pembina->name }}"></x-extra-card>
                 </div>
+                @endforeach
                 <!--end::Row-->
                 <!--begin::Row-->
                 <div class="row g-5 g-xl-8">

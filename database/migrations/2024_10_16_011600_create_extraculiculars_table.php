@@ -14,14 +14,12 @@ return new class extends Migration
         Schema::create('extraculiculars', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('admin_id');
-            $table->bigInteger('student_id')->unsigned()->index();
-            $table->foreign('student_id')->references('id')->on('students');
+            $table->bigInteger('admin_id')->unsigned()->index();
             $table->foreign('admin_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      */
